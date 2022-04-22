@@ -2,7 +2,6 @@ import React from 'react'
 
 import CardWidget from './CardWidget'
 
-//import CardWidget from '.components/CardWidget'
 const NavBar = () => {
     return (
         <>
