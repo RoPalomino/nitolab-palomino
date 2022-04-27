@@ -26,6 +26,12 @@
   #root > main {
     flex-grow: 1;
   }
+
+  main{
+    > h1 {
+      padding-bottom: 2rem;
+    }
+  }
   
   .header {
     background: linear-gradient(to left, #c4d3fcc0, rgba(146, 135, 221, 0.527));
@@ -50,6 +56,26 @@
     padding: 1rem;
     border-radius: 3px;
     box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 1rem;
+  }
+  
+  .card {
+    padding: 1rem;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s;
+    border-radius: 3px;
+    img{
+      width: 100%;
+    }
+  
+    &:hover {
+      transform : scale(1.1);
+    }
   }
   
   .footer {
