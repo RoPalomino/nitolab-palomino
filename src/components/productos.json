@@ -1,0 +1,20 @@
+[
+    {
+      "id" : 1,
+      "nombre" : "Fuji Eterna 250D",
+      "precio" : 1000,
+      "imagen" : "bla"
+    },
+    {
+      "id" : 2,
+      "nombre" : "Ilford Pan 100",
+      "precio" : 1500,
+      "imagen" : "blabla"
+    },
+    {
+      "id" : 3,
+      "nombre" : "Kentmere 400",
+      "precio" : 1250,
+      "imagen" : "blablabla"
+    }
+  ]

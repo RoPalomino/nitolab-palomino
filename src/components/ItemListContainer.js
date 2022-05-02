@@ -1,8 +1,9 @@
 //import ItemCount from "./ItemCount"
 import ItemList from "./ItemList"
 import { useEffect, useState } from "react"
+import productosIniciales from './productos.json'
 
-const productosIniciales = [
+/*const productosIniciales = [
   {
     id : 1,
     nombre : "Fuji Eterna 250D",
@@ -21,7 +22,7 @@ const productosIniciales = [
     precio : 1250,
     imagen: "blablabla"
   }
-]
+]*/
 const ItemListContainer = () => {
   const [cargando, setCargando] = useState(true)
   const [productos, setProductos] = useState([])

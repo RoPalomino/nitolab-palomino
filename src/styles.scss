@@ -15,7 +15,7 @@
   }
   
   #root {
-    display: flex;
+    //display: flex;
     flex-direction: column;
   }
   
@@ -70,12 +70,13 @@
     transition: all 0.3s;
     border-radius: 3px;
     img{
-      width: 100%;
+      width: 300px;
     }
+    
   
-    &:hover {
+    /*&:hover {
       transform : scale(1.1);
-    }
+    }*/
   }
   
   .footer {
