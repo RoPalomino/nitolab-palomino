@@ -4,14 +4,18 @@ import Header from './Header'
 import Footer from './Footer'
 import Main from './Main'
 
+import { BrowserRouter } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+
 
 const App = () => {
     return (
-        <>
-        <Header/>
-        <Main/>
-        <Footer/>
-        </>
+        <BrowserRouter>
+            <Header/>
+            <Main/>
+            <Footer/>
+            <ToastContainer/>
+        </BrowserRouter>
     )
 }
 

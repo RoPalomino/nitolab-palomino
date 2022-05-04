@@ -2,6 +2,9 @@
 import ItemList from "./ItemList"
 import { useEffect, useState } from "react"
 import productosIniciales from './productos.json'
+import { useParams } from "react-router-dom"
+import { toast } from "react-toastify"
+
 
 /*const productosIniciales = [
   {
@@ -24,44 +27,56 @@ import productosIniciales from './productos.json'
   }
 ]*/
 const ItemListContainer = () => {
-  const [cargando, setCargando] = useState(true)
-  const [productos, setProductos] = useState([])
-  useEffect(() => {
-    const pedido = new Promise((res)=>{
+
+  const [cargando,setCargando] = useState(true)
+  const [producto,setProducto] = useState([])
+  const {nombreCategoria,test} = useParams()
+
+
+  console.log({nombreCategoria,test})
+
+  useEffect(()=>{
+
+    console.log("Pido todos los productos")
+    toast.info("Cargando productos...")
+    const pedido = new Promise ((res)=>{
       setTimeout(()=>{
-        res(productosIniciales)
-      }, 2000)
+      res(productosIniciales)
+      },2000)
+    })
+    .then(()=>{
+    if(nombreCategoria===undefined){
+      setCargando(false)
+      setProducto(productosIniciales)
+      toast.dismiss()
+      toast.success("Productos Cargados")
+    } else {
+      console.log("Pido los productos de la categoria :",nombreCategoria)
+
+      toast.info("Cargando productos...")
+
+      setProducto(productosIniciales.filter(categoria=>categoria.categorias === nombreCategoria))
+      setCargando(false)
+      toast.dismiss()
+      toast.success("Productos Cargados")
+
+      }
+
     })
 
-    pedido
-    .then(()=>{
-      console.log("Termino el pedido bien!")
-      setCargando(false)
-      setProductos(productosIniciales)
-    })
-  }, [])
+  },[nombreCategoria])
 
   if(cargando){
     return(
       <p>Cargando...</p>
-    )
+    ) 
   }else{
     return(
-      <ItemList productos={productos}/>
+    <ItemList producto={producto}/>
     )
   }
+}
 
-  /*const onAdd = () => {
-  }
-
-    return ( 
-    <>
-      <div>Bienvenido</div>
-      <ItemCount stock={10} init={0} onAdd={onAdd}/>
-      <ItemList/>
-    </>
-    )*/
-  }
   
   export default ItemListContainer
 

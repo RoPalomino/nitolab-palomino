@@ -1,10 +1,19 @@
 import React from 'react'
 
 import NavBar from './components/NavBar'
+
+import { Link } from 'react-router-dom'
+import CardWidget from './components/CardWidget'
 const Header = () => {
     return (
         <header className="header">
-            <h1 className="header__titulo">NitoLab</h1>
+            <Link to="/">
+                <h1 className="header__titulo">NitoLab E-commerce</h1>
+            </Link>
+            <Link to="/carrito">
+                <CardWidget/>
+            </Link>            
+            
             <NavBar/>
         </header>
     )

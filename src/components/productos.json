@@ -3,18 +3,43 @@
       "id" : 1,
       "nombre" : "Fuji Eterna 250D",
       "precio" : 1000,
-      "imagen" : "bla"
+      "categorias" : "Cine",
+      "imagen" : "https://via.placeholder.com/300x300"
     },
     {
       "id" : 2,
       "nombre" : "Ilford Pan 100",
       "precio" : 1500,
-      "imagen" : "blabla"
+      "categorias" : "Monochrome",
+      "imagen" : "https://via.placeholder.com/300x300"
     },
     {
       "id" : 3,
       "nombre" : "Kentmere 400",
       "precio" : 1250,
-      "imagen" : "blablabla"
+      "categorias" : "Monochrome",
+      "imagen" : "https://via.placeholder.com/300x300"
+    },
+    {
+        "id" : 4,
+        "nombre" : "Kentmere 100",
+        "precio" : 1250,
+        "categorias" : "Monochrome",
+        "imagen" : "https://via.placeholder.com/300x300"
+    },
+    {
+        "id" : 5,
+        "nombre" : "Ilford Pan 400",
+        "precio" : 1500,
+        "categorias" : "Monochrome",
+        "imagen" : "https://via.placeholder.com/300x300"
+    },
+    {
+        "id" : 6,
+        "nombre" : "Fuji CDU Type II",
+        "precio" : 1100,
+        "categorias" : "Intervenidos",
+        "imagen" : "https://via.placeholder.com/300x300"
     }
+
   ]
