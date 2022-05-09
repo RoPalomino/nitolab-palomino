@@ -37,7 +37,7 @@ const ItemListContainer = () => {
 
   useEffect(()=>{
 
-    console.log("Pido todos los productos")
+    //console.log("Pido todos los productos")
     toast.info("Cargando productos...")
     const pedido = new Promise ((res)=>{
       setTimeout(()=>{
@@ -51,7 +51,7 @@ const ItemListContainer = () => {
       toast.dismiss()
       toast.success("Productos Cargados")
     } else {
-      console.log("Pido los productos de la categoria :",nombreCategoria)
+      //console.log("Pido los productos de la categoria :",nombreCategoria)
 
       toast.info("Cargando productos...")
 

@@ -1,3 +1,5 @@
+@import "~bootstrap/scss/bootstrap";
+
 * {
     padding: 0;
     margin: 0;
@@ -72,11 +74,30 @@
     img{
       width: 300px;
     }
-    
-  
     /*&:hover {
       transform : scale(1.1);
     }*/
+  }
+  
+  .cardDetail {
+    margin: 1rem;
+    padding: 1rem;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    img {
+      width: 300px;
+      margin: auto;
+    }
+  }
+  
+  .imagenMain {
+    display: block;
+    margin: auto;
+    width: 400px;
+  }
+  
+  .imagenDetalle {
+    width: 300px;
   }
   
   .footer {

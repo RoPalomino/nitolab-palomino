@@ -1,23 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
 
 
-const Item = ({producto}) => {
-    const [detalles, setDetalles] = useState
-
-    const detallesProductos = () => {
-        console.log(producto.id)
-        setDetalles(true)
-    }
-
+const Item = ({ producto }) => {
     return (
-        <article className="card">
+        <article className="cardItem">
             <h3>{producto.nombre}</h3>
-            <img src="https://via.placeholder.com/300x300" alt="card"/>
-            <p>Precio : ${producto.precio}</p>
-            {/*<p>Categorias : {producto.categorias.map(categoria=>{})}</p>*/}
-            <Link to={`/producto/${producto.id}`} key={producto.id}>Ver Detalle</Link>
+            <img src="https://via.placeholder.com/300x300" alt="" />
+            <p>Precio : $ {producto.precio}</p>
+          
+            <Link
+                to={`/item/${producto.id}`}
+                key={producto.id}
+                className="botonSuma btn-primary"
+            >
+                Ver Detalle
+            </Link>
         </article>
     )
 }

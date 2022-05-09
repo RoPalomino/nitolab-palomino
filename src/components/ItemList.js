@@ -3,10 +3,10 @@ import Item from './Item'
 
 //aca se mapea y queda el estado del contador 
 
-const ItemList = ({productos}) => {
+const ItemList = ({producto}) => {
     return (
         <section>
-            {productos.map(producto=>{
+            {producto.map(producto=>{
                 return(
                     <Item key={producto.id} producto={producto}/>
                 )

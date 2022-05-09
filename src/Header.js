@@ -10,9 +10,7 @@ const Header = () => {
             <Link to="/">
                 <h1 className="header__titulo">NitoLab E-commerce</h1>
             </Link>
-            <Link to="/carrito">
-                <CardWidget/>
-            </Link>            
+                      
             
             <NavBar/>
         </header>
