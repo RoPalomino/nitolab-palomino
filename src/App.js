@@ -5,7 +5,7 @@ import Footer from './Footer'
 import Main from './Main'
 
 import { BrowserRouter } from 'react-router-dom'
-import { ToastContainer } from 'react-toastify'
+//import { ToastContainer } from 'react-toastify'
 
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
@@ -19,7 +19,7 @@ const App = () => {
                 <Header/>
                 <Main/>
                 <Footer/>
-                <ToastContainer/>
+                {/*<ToastContainer/>*/}
             </CustomProvider>
         </BrowserRouter>
     )

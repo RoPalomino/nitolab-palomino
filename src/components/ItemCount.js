@@ -30,46 +30,22 @@ const ItemCount = ({init, stock, onAdd, onCount}) => {
         setConfirmado(false)
     }
 
-
-    if (!confirmado) {
-        return (
-            <div>
-                <div className="">
-                    <button onClick={suma} className="material-icons botonSuma btn-primary">
-                        add
-                    </button>
-                    <p className="cantidad">Unidades a comprar : {contador}</p>
-                    <button onClick={resta} className="material-icons botonSuma btn-primary">
-                        remove
-                    </button>
-                </div>
-                <button onClick={confirmar} className="botonSuma btn-primary">
-                    Confirmar
+    return (
+        <div>
+            <div className="">
+                <button onClick={suma} className="material-icons botonSuma">
+                    add
+                </button>
+                <p className="cantidad">Unidades a comprar : {contador}</p>
+                <button onClick={resta} className="material-icons botonSuma">
+                    remove
                 </button>
             </div>
-        );
-    } else {
-        return (
-            <div>
-                <div className="">
-                    <button onClick={suma} className="material-icons botonSuma">
-                        add
-                    </button>
-                    <p className="cantidad">Unidades a comprar : {contador}</p>
-                    <button onClick={resta} className="material-icons botonSuma">
-                        remove
-                    </button>
-                </div>
-                <button onClick={confirmar} className="botonSuma">
-                    Confirmar
-                </button>
-                <h6 className="modalcss">
-                    Se confirmaron {contador} unidades!
-                    <button onClick={cerrarConfirmado}>Cerrar</button>
-                </h6>
-            </div>
-        );
-    }
+            <button onClick={confirmar} className="botonSuma">
+                Confirmar
+            </button>
+        </div>
+    )
   
 
 }

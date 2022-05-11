@@ -46,8 +46,7 @@ const ItemDetail = ({producto}) => {
         setVerContador(true)
     }
 
-    if(!verContador) {
-        return (
+    return(
             <article className="card cardDetail">
                 <h1>Detalle del producto</h1>
                 <h3>Titulo : {producto.nombre}</h3>
@@ -56,32 +55,22 @@ const ItemDetail = ({producto}) => {
                 <p>Stock disponible : {producto.stock}</p>
                 <p>Codigo de producto : {producto.id}</p>
                 <p>Categoria : {producto.categorias}</p>
-                <ItemCount stock={producto.stock} init={1} onAdd={onAdd} onCount={funcionVerContador}/>
-                <Link to="/carrito" >
-                    <button className="botonSuma">
-                    Terminar Compra
-                    </button>
-                </Link>
+                {
+                    verContador ? (
+                        <ItemCount stock={producto.stock} init={1} onAdd={onAdd} setVerContador={setVerContador}/>
+                    ) : (
+                        <Link to="/carrito" >
+                            <button className="botonSuma">
+                                Terminar Compra
+                            </button>
+                        </Link>
+                    )
+                }
             </article>
-        );
-    } else {
-        return(
-            <article className="card cardDetail">
-                <h1>Detalle del producto</h1>
-                <h3>Titulo : {producto.nombre}</h3>
-                <h4>Precio : $ {producto.precio}</h4>
-                <img src={producto.imagen} alt="" />
-                <p>Stock disponible : {producto.stock}</p>
-                <p>Codigo de producto : {producto.id}</p>
-                <p>Categoria : {producto.categorias}</p>
-                <Link to="/carrito" >
-                    <button className="botonSuma">
-                    Terminar Compra
-                    </button>
-                </Link>
-            </article>
-        )
-    }
+
+
+    )
+    
     
 }
 
