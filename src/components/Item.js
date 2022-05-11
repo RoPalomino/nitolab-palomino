@@ -12,8 +12,7 @@ const Item = ({ producto }) => {
             <Link
                 to={`/item/${producto.id}`}
                 key={producto.id}
-                className="botonSuma btn-primary"
-            >
+                className="botonSuma">
                 Ver Detalle
             </Link>
         </article>

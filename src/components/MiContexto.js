@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export const contexto = createContext({});
 
-const { /*Consumer*/ Provider } = contexto;
+const { Provider } = contexto;
 
 const MiCustomProvider = ({ children }) => {
   const [carrito, setCarrito] = useState([]);
