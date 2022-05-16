@@ -9,7 +9,7 @@ const ItemDetail = ({producto}) => {
     const [nombre, setNombre] = useState("");
     const [cartItems, setCartItems] = useState(0);
     const { addItem } = useContext(cartContext);
-    const [verContador, setVerContador] = useState(false)
+    const [verContador, setVerContador] = useState(true)
 
     const onAdd = (quantity) => {
         setCartItems(quantity);
@@ -55,7 +55,7 @@ const ItemDetail = ({producto}) => {
                 <p>Stock disponible : {producto.stock}</p>
                 <p>Codigo de producto : {producto.id}</p>
                 <p>Categoria : {producto.categorias}</p>
-                <ItemCount/>
+               
                 {
                     verContador ? (
                         <ItemCount stock={producto.stock} init={1} onAdd={onAdd} setVerContador={setVerContador}/>

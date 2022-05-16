@@ -3,7 +3,7 @@ import ItemList from "./ItemList"
 import { useEffect, useState } from "react"
 import productosIniciales from './productos.json'
 import { useParams } from "react-router-dom"
-import { toast } from "react-toastify"
+//import { toast } from "react-toastify"
 
 
 /*const productosIniciales = [
@@ -33,12 +33,12 @@ const ItemListContainer = () => {
   const {nombreCategoria,test} = useParams()
 
 
-  console.log({nombreCategoria,test})
+  //console.log({nombreCategoria,test})
 
   useEffect(()=>{
 
     //console.log("Pido todos los productos")
-    toast.info("Cargando productos...")
+    //toast.info("Cargando productos...")
     const pedido = new Promise ((res)=>{
       setTimeout(()=>{
       res(productosIniciales)
@@ -48,17 +48,14 @@ const ItemListContainer = () => {
     if(nombreCategoria===undefined){
       setCargando(false)
       setProducto(productosIniciales)
-      toast.dismiss()
-      toast.success("Productos Cargados")
+      //toast.dismiss()
+      //toast.success("Productos Cargados")
     } else {
-      //console.log("Pido los productos de la categoria :",nombreCategoria)
-
-      toast.info("Cargando productos...")
-
+      //toast.info("Cargando productos...")
       setProducto(productosIniciales.filter(categoria=>categoria.categorias === nombreCategoria))
       setCargando(false)
-      toast.dismiss()
-      toast.success("Productos Cargados")
+      //toast.dismiss()
+      //toast.success("Productos Cargados")
 
       }
 
