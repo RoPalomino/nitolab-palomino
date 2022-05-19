@@ -9,18 +9,19 @@ import { BrowserRouter } from 'react-router-dom'
 
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
-import { CustomProvider } from "./components/CartContext"
+//import { CustomProvider } from "./components/CartContext"
+import MiCustomProvider from './components/MiContexto'
 
 
 const App = () => {
     return (
         <BrowserRouter>
-            <CustomProvider>
+            <MiCustomProvider>
                 <Header/>
                 <Main/>
                 <Footer/>
                 {/*<ToastContainer/>*/}
-            </CustomProvider>
+            </MiCustomProvider>
         </BrowserRouter>
     )
 }

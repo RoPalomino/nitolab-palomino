@@ -2,14 +2,14 @@ import React from 'react'
 import {memo} from 'react'
 import CarritoItem from './CarritoItem'
 
-const CarritoLista = ({usuarios}) => {
+const CarritoLista = ({usuarios, cart}) => {
     
     console.log("Render CarritoLista")
     
     return (
         <ul>
-            {usuarios.map(usuario=>{
-                return <CarritoItem key={usuario.id} usuario={usuario}/>
+            {cart.map(producto=>{
+                return <CarritoItem key={producto.id} productos={producto}/>
             })}
         </ul>
     )

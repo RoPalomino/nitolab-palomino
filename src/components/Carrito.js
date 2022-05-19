@@ -5,7 +5,7 @@ import CartContext from './CartContext'
 import CarritoLista from './CarritoLista'
 
 const Carrito = () => {
-  const { precio_total, carrito, vaciarCarrito } = useContext(CartContext)
+  const { precio_total, cart, vaciarCarrito } = useContext(CartContext)
   const [usuarios, setUsuarios] = useState([])
   const [nombre, setNombre] = useState("")
 
@@ -32,7 +32,7 @@ const Carrito = () => {
       <p>Precio total : $ {precio_total}</p>
       <button onClick={handleClick}>Click</button>
       <input type="text" onChange={handleChange}/>
-      <CarritoLista usuarios={usuarios} borrarUsuario={borrarUsuarioMemorizada}/>
+      <CarritoLista usuarios={usuarios} borrarUsuario={borrarUsuarioMemorizada} cart={cart}/>
     </div>
   )
 }

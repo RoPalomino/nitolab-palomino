@@ -13,7 +13,7 @@ export const CustomProvider = ({ defaultValue = [], children }) => {
       const newCart = [...cart];
       for (const element of newCart) {
         if (element.item.id === producto.id) {
-          producto.quantity = quantity;
+          element.quantity = quantity;
         }
       }
       setCart(newCart);
@@ -30,7 +30,7 @@ export const CustomProvider = ({ defaultValue = [], children }) => {
 
   const isInCart = (id) => {
     console.log('esta en el cart', cart.some((e) => e.item.id === id))
-    return cart.some((e) => e.id === id);
+    return cart.some((e) => e.item.id === id);
   };
 
   const removeItem = (id) => {
