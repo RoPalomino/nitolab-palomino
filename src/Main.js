@@ -2,7 +2,7 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import ItemDetailContainer from './components/ItemDetailContainer'
 import ItemListContainer from './components/ItemListContainer'
-import Carrito from './components/Carrito'
+import Cart from './components/Cart'
 
 const Main = () => {
     return (
@@ -11,7 +11,7 @@ const Main = () => {
                 <Route path="/" element={<ItemListContainer/>}/>
                 <Route path="/category/:nombreCategoria" element={<ItemListContainer/>}/>
                 <Route path="/item/:id" element={<ItemDetailContainer/>}/>
-                <Route path="/carrito" element={<Carrito/>}/>
+                <Route path="/cart" element={<Cart/>}/>
             </Routes>
         </main>
     )

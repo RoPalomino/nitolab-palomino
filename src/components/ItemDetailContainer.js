@@ -3,6 +3,8 @@ import { useEffect, useState } from "react"
 import ItemDetail from './ItemDetail'
 import { useParams } from "react-router-dom"
 import { toast } from "react-toastify"
+import { collection, getDoc, doc, getDocs, addDoc, query } from "firebase/firestore"
+import { db } from "./Firebase"
 
 
 const productosIniciales = [
@@ -13,7 +15,8 @@ const productosIniciales = [
         precio : 1000,
         stock : 10,
         categorias : "Cine",
-        imagen : "https://via.placeholder.com/300x300"
+        imagen : "https://via.placeholder.com/300x300",
+        cantPorProducto: 0
       },
       {
         id : 2,
@@ -21,7 +24,8 @@ const productosIniciales = [
         precio : 1500,
         stock : 15,
         categorias : "Monochrome",
-        imagen : "https://via.placeholder.com/300x300"
+        imagen : "https://via.placeholder.com/300x300",
+        cantPorProducto: 0
       },
       {
         id : 3,
@@ -29,7 +33,8 @@ const productosIniciales = [
         precio : 1250,
         stock : 20,
         categorias : "Monochrome",
-        imagen : "https://via.placeholder.com/300x300"
+        imagen : "https://via.placeholder.com/300x300",
+        cantPorProducto: 0
       },
       {
           id : 4,
@@ -37,7 +42,8 @@ const productosIniciales = [
           precio : 1250,
           stock: 5,
           categorias : "Monochrome",
-          imagen : "https://via.placeholder.com/300x300"
+          imagen : "https://via.placeholder.com/300x300",
+          cantPorProducto: 0
       },
       {
           id : 5,
@@ -45,7 +51,8 @@ const productosIniciales = [
           precio : 1500,
           stock : 3,
           categorias : "Monochrome",
-          imagen : "https://via.placeholder.com/300x300"
+          imagen : "https://via.placeholder.com/300x300",
+          cantPorProducto: 0
       },
       {
           id : 6,
@@ -53,7 +60,26 @@ const productosIniciales = [
           precio : 1100,
           stock : 25,
           categorias : "Intervenidos",
-          imagen : "https://via.placeholder.com/300x300"
+          imagen : "https://via.placeholder.com/300x300",
+          cantPorProducto: 0
+      },
+      {
+        id : 7,
+        nombre : "Kodak ColorPlus",
+        precio : 2400,
+        stock : 5,
+        categorias : "C41",
+        imagen : "https://via.placeholder.com/300x300",
+        cantPorProducto: 0
+      },
+      {
+        id : 8,
+        nombre : "Kodak UltraMax",
+        precio : 3000,
+        stock : 10,
+        categorias : "C41",
+        imagen : "https://via.placeholder.com/300x300",
+        cantPorProducto: 0
       }
 
 ]
@@ -66,34 +92,36 @@ const ItemDetailContainer = () => {
 
 
     useEffect(() => {    
-        toast.info("Cargando detalle...");
+        //toast.info("Cargando detalle...");
     
-        const detalleProducto = productosIniciales.filter((producto) => {
-          return producto.id == id;
-        })[0];
+        const productosCollection = collection(db, `producto`)
+
+        const consulta = getDocs(productosCollection)
+
+        consulta
+          .then((resultado)=>{
+            const detalleProducto = resultado.docs.filter(doc=>{
+              const productoConId = doc.data()
+              productoConId.id = doc.id
+              return productoConId.id === id;
+            })[0];
+            
+            setProducto(detalleProducto)
+            setCargando(false)
+          })
+
+          .catch((error)=>{})
         
+          .finally(()=>{})
+        })
     
-        const pedidoDeDetalle = new Promise((res) => {
-          setTimeout(() => {
-            res(detalleProducto);
-          }, 2000);
-        }).then(() => {
-          setCargando(false);
-          setProducto(detalleProducto);
-          toast.dismiss();
-          toast.success("Detalle de Producto Cargado");
-        });
-      });
-    
-      if (cargando) {
-        return (<p>Cargando...</p>);
-      } else {
+      
         return (
           <>
-            <ItemDetail key={producto.id} producto={producto} />
+            {cargando ? <p>Cargando...</p> : <ItemDetail key={producto.id} producto={producto} />}
           </>
         );
-      }
+  
         
 }
 

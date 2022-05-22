@@ -60,6 +60,12 @@
     box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.2);
   }
 
+  .botonSuma {
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+  }
+
   .card-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));

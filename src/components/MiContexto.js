@@ -15,13 +15,13 @@ const MiCustomProvider = ({ children }) => {
     return carrito.find(e=>e.id==id)
   }
 
-  const agregarProducto = (contador, item) => {
-    if(estaEnCarrito(item.id)){
+  const agregarProducto = (contador, producto) => {
+    if(estaEnCarrito(producto.id)){
       setCantidad_total(contador)
     } else {
-      setCantidad_total(cantidad_total+item.cantPorProducto)
-      setPrecio_total(precio_total+item.precio)
-      setCarrito([...carrito,item])
+      setCantidad_total(cantidad_total+producto.cantPorProducto)
+      setPrecio_total(precio_total+producto.precio)
+      setCarrito([...carrito,producto])
     }
   }
 

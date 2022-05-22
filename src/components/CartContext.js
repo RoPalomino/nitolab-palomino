@@ -1,4 +1,4 @@
-import { createContext } from "react";
+/*import { createContext } from "react";
 import { useState } from "react";
 
 export const cartContext = createContext();
@@ -12,7 +12,7 @@ export const CustomProvider = ({ defaultValue = [], children }) => {
     if (isInCart(producto.id)) {
       const newCart = [...cart];
       for (const element of newCart) {
-        if (element.item.id === producto.id) {
+        if (element.producto.id === producto.id) {
           element.quantity = quantity;
         }
       }
@@ -21,7 +21,7 @@ export const CustomProvider = ({ defaultValue = [], children }) => {
       setCart([
         ...cart,
         {
-          item: producto,
+          producto: producto,
           quantity: quantity,
         },
       ]);
@@ -49,4 +49,4 @@ export const CustomProvider = ({ defaultValue = [], children }) => {
   );
 };
 
-export default cartContext;
+export default cartContext;*/

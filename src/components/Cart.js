@@ -1,39 +1,28 @@
 import React from 'react'
 import { useContext } from 'react'
-import {cartContext} from './CartContext'
+//import {cartContext} from './CartContext'
 import CarritoItem from './CarritoItem'
+import { contexto } from './MiContexto'
+import { db } from './Firebase'
+import CarritoLista from './CarritoLista'
 
 const Cart = () => {
 
-    const {cart} = useContext(cartContext)
+    const {precio_total, carrito, vaciarCarrito} = useContext(contexto)
+
+    const handleClick = () => {
+        vaciarCarrito()
+    }
 
     return (
         <div>
-            <div>
-                {cart.map(producto=>{
-                    return (
-                        <CarritoItem key={producto.item[0].id} productoCart={producto}/>
-                    )
-                })}
-            </div>
-            
+            <h1>Carrito</h1>
+            <h3>Precio Total: ${precio_total}</h3>
+            <CarritoLista carrito={carrito}/>
+            <button className="botonSuma" onClick={handleClick}>Vaciar</button>            
         </div>
     )
 }
 
 export default Cart
 
-
-
-/*
-<Card.Body>
-    <Card.Title>{item.itemName}</Card.Title>
-    <Card.Text>
-        <span><b>Price: ${item.itemPrice} / unit</b></span>                                        
-    </Card.Text>
-    <Card.Text>
-        <span>Quantity: {item.itemCant}</span>
-    </Card.Text>
-    <Button variant="outline-danger" onClick={() => cart.removeFromCart(item.itemId)}>Remove</Button>
-</Card.Body>
-*/

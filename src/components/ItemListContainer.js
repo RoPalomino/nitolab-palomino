@@ -3,75 +3,103 @@ import ItemList from "./ItemList"
 import { useEffect, useState } from "react"
 import productosIniciales from './productos.json'
 import { useParams } from "react-router-dom"
-//import { toast } from "react-toastify"
+import { db } from "./Firebase"
+import { collection , getDoc , doc , getDocs , addDoc , query } from "firebase/firestore" 
 
+/*export const productosIniciales = [
 
-/*const productosIniciales = [
   {
-    id : 1,
-    nombre : "Fuji Eterna 250D",
-    precio : 1000,
-    imagen: "bla"
-  },
-  {
-    id : 2,
-    nombre : "Ilford Pan 100",
-    precio : 1500,
-    imagen: "blabla"
-  },
-  {
-    id : 3,
-    nombre : "Kentmere 400",
-    precio : 1250,
-    imagen: "blablabla"
-  }
+      id : 1,
+      nombre : "Fuji Eterna 250D",
+      precio : 1000,
+      stock : 10,
+      categorias : "Cine",
+      imagen : "https://via.placeholder.com/300x300"
+    },
+    {
+      id : 2,
+      nombre : "Ilford Pan 100",
+      precio : 1500,
+      stock : 15,
+      categorias : "Monochrome",
+      imagen : "https://via.placeholder.com/300x300"
+    },
+    {
+      id : 3,
+      nombre : "Kentmere 400",
+      precio : 1250,
+      stock : 20,
+      categorias : "Monochrome",
+      imagen : "https://via.placeholder.com/300x300"
+    },
+    {
+        id : 4,
+        nombre : "Kentmere 100",
+        precio : 1250,
+        stock: 5,
+        categorias : "Monochrome",
+        imagen : "https://via.placeholder.com/300x300"
+    },
+    {
+        id : 5,
+        nombre : "Ilford Pan 400",
+        precio : 1500,
+        stock : 3,
+        categorias : "Monochrome",
+        imagen : "https://via.placeholder.com/300x300"
+    },
+    {
+        id : 6,
+        nombre : "Fuji CDU Type II",
+        precio : 1100,
+        stock : 25,
+        categorias : "Intervenidos",
+        imagen : "https://via.placeholder.com/300x300"
+    }
+
 ]*/
-const ItemListContainer = () => {
+
+const ItemListContainer = ({children}) => {
 
   const [cargando,setCargando] = useState(true)
   const [producto,setProducto] = useState([])
   const {nombreCategoria,test} = useParams()
 
 
-  //console.log({nombreCategoria,test})
 
   useEffect(()=>{
 
-    //console.log("Pido todos los productos")
-    //toast.info("Cargando productos...")
-    const pedido = new Promise ((res)=>{
-      setTimeout(()=>{
-      res(productosIniciales)
-      },2000)
-    })
-    .then(()=>{
-    if(nombreCategoria===undefined){
-      setCargando(false)
-      setProducto(productosIniciales)
-      //toast.dismiss()
-      //toast.success("Productos Cargados")
-    } else {
-      //toast.info("Cargando productos...")
-      setProducto(productosIniciales.filter(categoria=>categoria.categorias === nombreCategoria))
-      setCargando(false)
-      //toast.dismiss()
-      //toast.success("Productos Cargados")
+    const productosCollection = collection(db, `producto`)
+    const consulta = getDocs(productosCollection)
 
-      }
+    consulta
+      .then((resultado)=>{
+        //console.log(resultado.docs)
+        const productos = resultado.docs.map(doc=>{
+          const productoConId = doc.data()
+          productoConId.id = doc.id
+          return productoConId
+        })
+        setProducto(productos)
+        setCargando(false)
+        //console.log(productos)
+      })
+      .catch((error)=>{
+      })
+      .finally(()=>{
 
-    })
+      })
+
+    
 
   },[nombreCategoria])
 
-  if(cargando){
     return(
-      <p>Cargando...</p>
+      <>
+      {cargando ? <p>Cargando...</p> : <ItemList producto={producto}/>}
+      </>
     ) 
-  }else{
-    return(
-    <ItemList producto={producto}/>
-    )
-  }
+ 
 }
 
   

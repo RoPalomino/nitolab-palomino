@@ -41,7 +41,7 @@ const NavBar = () => {
 
 
                             <li className="nav-item">
-                                <Link to="/Carrito">
+                                <Link to="/cart">
                                     <CardWidget/>
                                 </Link>
                             </li>
