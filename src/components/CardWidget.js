@@ -7,7 +7,7 @@ const CardWidget = (props) => {
     const { cantidad_total } = useContext(contexto)
 
     return (
-        <Link to="/carrito">
+        <Link to="/cart">
             <span className="material-icons">
                     shopping_cart
             </span>  
