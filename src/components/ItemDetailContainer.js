@@ -2,7 +2,6 @@ import React from 'react'
 import { useEffect, useState } from "react"
 import ItemDetail from './ItemDetail'
 import { useParams } from "react-router-dom"
-import { toast } from "react-toastify"
 import { collection, getDoc, doc, getDocs, addDoc, query } from "firebase/firestore"
 import { db } from "./Firebase"
 
@@ -92,11 +91,10 @@ const ItemDetailContainer = () => {
 
 
     useEffect(() => {    
-        //toast.info("Cargando detalle...");
     
-        const productosCollection = collection(db, `producto`)
+        const productosCollection = collection(db, "producto")
 
-        const consulta = getDocs(productosCollection)
+        const consulta = getDoc(productosCollection)
 
         consulta
           .then((resultado)=>{

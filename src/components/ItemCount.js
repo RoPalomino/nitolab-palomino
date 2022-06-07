@@ -2,11 +2,11 @@ import React from 'react'
 
 import { useState } from "react"
 
-const ItemCount = ({init, stock, onAdd, onCount, productos}) => {
+const ItemCount = ({init, stock, onAdd, onCount, producto}) => {
     const [contador, setContador] = useState(init)
     const [confirmado, setConfirmado] = useState(false)
 
-
+  
     const suma = () => { 
         if(contador < stock){
             setContador(contador + 1)
@@ -20,8 +20,7 @@ const ItemCount = ({init, stock, onAdd, onCount, productos}) => {
     }
 
     const confirmar = () => {
-        onAdd(contador, productos)
-        console.log(contador)
+        onAdd(contador, producto)
         setConfirmado(true)
     }
 
@@ -69,31 +68,6 @@ const ItemCount = ({init, stock, onAdd, onCount, productos}) => {
           </div>
         );
       }
-    
-    
-    
-    
-    
-    
-    
-    
-    /*return (
-        <div>
-            <div className="">
-                <button onClick={suma} className="material-icons botonSuma">
-                    add
-                </button>
-                <p className="cantidad">Unidades a comprar : {contador}</p>
-                <button onClick={resta} className="material-icons botonSuma">
-                    remove
-                </button>
-            </div>
-            <button onClick={confirmar} className="botonSuma">
-                Confirmar
-            </button>
-        </div>
-    )*/
-  
 
 }
 

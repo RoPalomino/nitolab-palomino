@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useState, useContext } from "react"
-//import { cartContext } from "./CartContext.js"
 import ItemCount from './ItemCount'
 import { contexto } from './MiContexto'
-//import { db } from './Firebase'
+import { db } from './Firebase'
+
 
 
 const ItemDetail = ({producto}) => {
@@ -29,7 +29,7 @@ const ItemDetail = ({producto}) => {
                 <p>Stock disponible : {producto.stock}</p>
                 <p>Codigo de producto : {producto.id}</p>
                 <p>Categoria : {producto.categorias}</p>
-                <ItemCount/>
+                <ItemCount stock={producto.stock} init={1} onAdd={onClick} onCount={funcionVerContador} producto={producto}/>
 
                 <Link to="/cart">
                     <button className="botonSuma" onAdd={onClick}>Terminar Compra</button>
@@ -46,8 +46,6 @@ const ItemDetail = ({producto}) => {
                 <p>Codigo de producto : {producto.id}</p>
                 <p>Categoria : {producto.categorias}</p>
           
-                <ItemCount/>
-
                 <Link to="/cart" >
                     <button className="botonSuma" onAdd={onClick}>
                         Terminar Compra
@@ -61,6 +59,13 @@ const ItemDetail = ({producto}) => {
 }
 
 export default ItemDetail
+
+
+
+
+
+
+
 
 
 

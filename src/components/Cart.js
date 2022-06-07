@@ -1,7 +1,5 @@
 import React from 'react'
 import { useContext } from 'react'
-//import {cartContext} from './CartContext'
-import CarritoItem from './CarritoItem'
 import { contexto } from './MiContexto'
 import { db } from './Firebase'
 import CarritoLista from './CarritoLista'

@@ -9,7 +9,7 @@ const Main = () => {
         <main className="main">
              <Routes>
                 <Route path="/" element={<ItemListContainer/>}/>
-                <Route path="/category/:nombreCategoria" element={<ItemListContainer/>}/>
+                <Route path="/categorias/:nombreCategoria" element={<ItemListContainer/>}/>
                 <Route path="/item/:id" element={<ItemDetailContainer/>}/>
                 <Route path="/cart" element={<Cart/>}/>
             </Routes>
